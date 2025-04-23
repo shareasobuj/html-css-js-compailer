@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML/CSS/JS Editor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 120vh;
+    }
+    h1 {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .editor-container {
+      display: flex;
+      flex: 1;
+      padding: 10px;
+      gap: 10px;
+      background-color: greenyellow;
+    }
+    textarea {
+      width: 90%;
+      height: 120px;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 10px;
+      border: 2px solid lime;
+      margin: 10px 0;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+    button {
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>SHAREA SOBUJ/Live HTML/CSS/JS Editor</h1>
+
+  
+    <textarea id="html" placeholder="HTML"></textarea><br>
+    <textarea id="css" placeholder="CSS"></textarea><br>
+    <textarea id="js" placeholder="JavaScript"></textarea><br>
+  
+
+  <button onclick="runCode()">Run</button>
+
+  <iframe id="output"></iframe>
+
+  <script>
+    function runCode() {
+      const html = document.getElementById("html").value;
+      const css = `<style>${document.getElementById("css").value}</style>`;
+      const js = `<script>${document.getElementById("js").value}<\/script>`;
+      const output = document.getElementById("output");
+      output.srcdoc = html + css + js;
+    }
+  </script>
+
+</body>
+</html>
